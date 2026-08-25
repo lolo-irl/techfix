@@ -4,7 +4,7 @@ Aplicação web responsiva para cadastro, consulta e gerenciamento de solicitaç
 
 ## Autor
 
-**Nicolas**
+**Nicolas Costa Boese**
 
 ## Sobre o Projeto
 
