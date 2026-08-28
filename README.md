@@ -1,74 +1,72 @@
 # TechFix
 
-Aplicação web responsiva para cadastro, consulta e gerenciamento de solicitações de manutenção de computadores e notebooks.
+Aplicação web responsiva para consulta de serviços e cadastro de solicitações de manutenção de computadores e notebooks.
 
 ## Autor
 
-**Nicolas Costa Boese**
+**Nicolas**
 
-## Sobre o Projeto
+## Descrição do Projeto
 
-O **TechFix** é uma aplicação web desenvolvida para facilitar o contato entre clientes e uma assistência técnica de computadores.
+O **TechFix** é uma aplicação web criada para facilitar o processo de solicitação de serviços de manutenção de computadores e notebooks.
 
-A aplicação permitirá que o usuário consulte os serviços disponíveis, informe dados sobre seu equipamento e registre uma solicitação de manutenção.
+A aplicação permitirá que o usuário consulte os serviços oferecidos por uma assistência técnica, pesquise e filtre serviços e registre uma solicitação de atendimento informando seus dados pessoais, endereço, equipamento e problema apresentado.
 
-O sistema também permitirá consultar as solicitações cadastradas, utilizando uma API fake para persistência dos dados.
+Os dados das solicitações serão armazenados em uma API fake utilizando **JSON Server** e posteriormente exibidos dinamicamente na aplicação.
 
-O projeto será desenvolvido progressivamente durante a disciplina utilizando HTML5, CSS3, Sass, Bootstrap, JavaScript, jQuery e APIs REST.
+Além disso, o sistema consumirá a API pública **ViaCEP** para consultar automaticamente informações de endereço a partir do CEP informado pelo usuário.
+
+O projeto será desenvolvido progressivamente utilizando tecnologias frontend e seguirá uma abordagem responsiva para dispositivos mobile e desktop.
+
+---
 
 ## Objetivo
 
-O objetivo principal do TechFix é organizar o processo de solicitação de serviços de assistência técnica, permitindo que o cliente informe previamente:
+O objetivo do TechFix é oferecer uma forma simples e organizada para que clientes possam consultar serviços de assistência técnica e registrar solicitações de manutenção.
 
-* Dados pessoais;
-* Dados de contato;
-* Tipo de equipamento;
-* Marca e modelo;
-* Serviço desejado;
-* Problema apresentado;
-* Endereço.
+A aplicação também será utilizada como projeto prático para aplicação dos conteúdos estudados durante a disciplina, incluindo:
 
-A aplicação deverá possuir uma interface simples, responsiva e de fácil utilização.
+* HTML5;
+* CSS3;
+* Bootstrap;
+* Sass;
+* JavaScript ES6+;
+* jQuery;
+* Web Storage;
+* JSON Server;
+* Consumo de APIs;
+* Responsividade;
+* Git e GitHub.
 
-## Principais Funcionalidades
-
-* Visualização dos serviços oferecidos;
-* Pesquisa e filtragem de serviços;
-* Cadastro de solicitações de manutenção;
-* Validação de formulários;
-* Máscaras para telefone e CEP;
-* Consulta automática de endereço;
-* Persistência temporária de informações utilizando Web Storage;
-* Persistência de solicitações utilizando JSON Server;
-* Listagem dinâmica das solicitações cadastradas;
-* Exclusão de solicitações;
-* Interface responsiva para mobile e desktop.
+---
 
 ## Páginas da Aplicação
 
-A aplicação possuirá inicialmente quatro páginas:
+O projeto possuirá inicialmente quatro páginas:
 
-### Página Inicial
+### Home
 
-Apresentação da assistência técnica e dos principais serviços.
+Página inicial responsável por apresentar o TechFix, seus principais serviços e informações gerais.
 
 ### Serviços
 
-Listagem dos serviços de manutenção disponíveis.
+Página responsável por listar os serviços de manutenção disponíveis.
+
+Permitirá pesquisar e filtrar os serviços.
 
 ### Solicitar Manutenção
 
-Formulário para cadastro de uma nova solicitação.
+Página contendo o formulário utilizado para cadastrar uma nova solicitação.
 
 ### Solicitações
 
-Página responsável por apresentar as solicitações cadastradas.
+Página responsável por apresentar as solicitações registradas no sistema.
 
 ---
 
 ## Prototipação
 
-O protótipo da aplicação será inicialmente desenvolvido utilizando o **Google Stitch**, considerando versões para:
+O protótipo será desenvolvido inicialmente no **Google Stitch**, contemplando versões para:
 
 * Mobile;
 * Desktop.
@@ -83,17 +81,18 @@ O protótipo poderá posteriormente ser refinado no Figma.
 
 ## Design System
 
-O Design System da aplicação está documentado no arquivo:
+O Design System completo da aplicação está documentado em:
 
 [`docs/architecture.md`](./docs/architecture.md)
 
-Ele contém informações sobre:
+O documento apresenta:
 
-* Cores;
+* Paleta de cores;
 * Tipografia;
 * Espaçamentos;
-* Componentes;
+* Bordas;
 * Responsividade;
+* Componentes;
 * Design Tokens.
 
 ---
@@ -104,9 +103,9 @@ O Framework CSS escolhido para o projeto é:
 
 **Bootstrap 5**
 
-O Bootstrap será utilizado para implementar:
+O Bootstrap será utilizado para:
 
-* Sistema de Grid;
+* Grid responsivo;
 * Flexbox;
 * Containers;
 * Navbar;
@@ -115,9 +114,15 @@ O Bootstrap será utilizado para implementar:
 * Forms;
 * Alerts;
 * Modal;
-* Carousel;
 * Tabelas;
+* Badges;
 * Utilitários responsivos.
+
+Os principais componentes planejados no protótipo que posteriormente serão implementados com Bootstrap são:
+
+1. Navbar;
+2. Cards de serviços;
+3. Modal de detalhes e confirmação.
 
 ---
 
@@ -127,8 +132,8 @@ O projeto utilizará:
 
 * Bootstrap 5;
 * Bootstrap Icons;
-* Sass;
 * JavaScript ES6+;
+* Sass;
 * jQuery;
 * jQuery Mask Plugin;
 * JSON Server;
@@ -139,13 +144,11 @@ O projeto utilizará:
 
 ## API Pública
 
-A aplicação utilizará a API pública:
+A API pública escolhida para o projeto é a **ViaCEP**.
 
-**ViaCEP**
+Ela será utilizada no formulário de solicitação para consultar automaticamente informações de endereço a partir do CEP informado pelo cliente.
 
-A ViaCEP será utilizada para consultar automaticamente dados de endereço através do CEP informado pelo cliente.
-
-Entre as informações retornadas estarão:
+Entre os dados utilizados estarão:
 
 * Logradouro;
 * Bairro;
@@ -158,60 +161,20 @@ Entre as informações retornadas estarão:
 
 Será utilizado o **JSON Server** para simular uma API REST.
 
-A API será responsável principalmente pelos recursos:
+Os principais recursos da API serão:
 
 ```text
 /services
 /requests
 ```
 
-Esses endpoints serão utilizados para armazenar e consultar:
+### `/services`
 
-* Serviços;
-* Solicitações de manutenção.
+Responsável por armazenar e fornecer os serviços disponíveis.
 
----
+### `/requests`
 
-# Checklist de Indicadores de Desempenho
-
-## RA1 — Frameworks CSS e Responsividade
-
-* [ ] **ID 01** — Prototipar interfaces adaptáveis para mobile e desktop utilizando Stitch/Figma.
-* [ ] **ID 02** — Implementar layout responsivo utilizando Grid ou Flexbox do Bootstrap.
-* [ ] **ID 03** — Implementar partes do layout utilizando Flexbox ou Grid com CSS puro.
-* [ ] **ID 04** — Utilizar componentes prontos do Bootstrap e componentes JavaScript do framework.
-* [ ] **ID 05** — Criar layout fluido utilizando unidades relativas como %, rem, em, vw e vh.
-* [ ] **ID 06** — Aplicar Design System consistente em toda a aplicação.
-* [ ] **ID 07** — Utilizar Sass com variáveis, mixins e funções.
-* [ ] **ID 08** — Aplicar tipografia responsiva utilizando `clamp()` ou media queries.
-* [ ] **ID 09** — Aplicar técnicas de responsividade de imagens utilizando CSS.
-* [ ] **ID 10** — Utilizar imagens otimizadas em WebP e recursos como `srcset` ou `picture`.
-
-## RA2 — Formulários e Validação
-
-* [ ] **ID 11** — Implementar validação HTML nativa.
-* [ ] **ID 12** — Utilizar expressões regulares para validações customizadas.
-* [ ] **ID 13** — Utilizar elementos `select`, `radio` e `checkbox`.
-* [ ] **ID 14** — Utilizar LocalStorage ou SessionStorage.
-
-## RA3 — Ferramentas de Desenvolvimento
-
-* [ ] **ID 15** — Configurar Node.js e NPM.
-* [ ] **ID 16** — Utilizar boas práticas de versionamento com Git e GitHub.
-* [ ] **ID 17** — Manter README padronizado.
-* [ ] **ID 18** — Organizar os arquivos da aplicação de maneira modular.
-* [ ] **ID 19** — Configurar ESLint e Prettier.
-
-## RA4 — Bibliotecas JavaScript
-
-* [ ] **ID 20** — Utilizar jQuery para manipulação do DOM e interatividade.
-* [ ] **ID 21** — Integrar o jQuery Mask Plugin.
-
-## RA5 — APIs
-
-* [ ] **ID 22** — Utilizar requisições assíncronas para cadastrar dados no JSON Server.
-* [ ] **ID 23** — Utilizar requisições assíncronas para consultar dados do JSON Server.
-* [ ] **ID 24** — Consumir a API pública ViaCEP utilizando requisições assíncronas.
+Responsável por armazenar e fornecer as solicitações de manutenção.
 
 ---
 
@@ -258,25 +221,58 @@ techfix/
 
 ---
 
-## Site em Produção
+# Checklist de Indicadores de Desempenho
 
-O projeto será publicado utilizando **GitHub Pages**.
+## RA1 — Framework CSS e Responsividade
 
-Link:
+* [ ] **ID 01** — Prototipar interfaces adaptáveis para mobile e desktop utilizando Stitch ou Figma.
+* [ ] **ID 02** — Implementar layout responsivo utilizando Grid ou Flexbox do Bootstrap.
+* [ ] **ID 03** — Implementar partes do layout utilizando Flexbox ou Grid com CSS puro.
+* [ ] **ID 04** — Utilizar componentes prontos do Bootstrap e componentes JavaScript do framework.
+* [ ] **ID 05** — Utilizar unidades relativas como `rem`, `em`, `%`, `vw` e `vh`.
+* [ ] **ID 06** — Aplicar um Design System consistente em toda a aplicação.
+* [ ] **ID 07** — Utilizar Sass com variáveis, mixins e funções.
+* [ ] **ID 08** — Aplicar tipografia responsiva utilizando media queries ou `clamp()`.
+* [ ] **ID 09** — Aplicar técnicas de responsividade de imagens utilizando CSS.
+* [ ] **ID 10** — Utilizar imagens WebP e carregamento adaptativo com `srcset` ou `picture`.
 
-`A definir`
+## RA2 — Formulários e Validação
+
+* [ ] **ID 11** — Implementar validação HTML nativa com campos obrigatórios e mensagens de erro ou sucesso.
+* [ ] **ID 12** — Aplicar expressões regulares para validações customizadas.
+* [ ] **ID 13** — Utilizar elementos `checkbox`, `radio` e `select`.
+* [ ] **ID 14** — Utilizar LocalStorage ou SessionStorage para persistência local.
+
+## RA3 — Ferramentas de Desenvolvimento
+
+* [ ] **ID 15** — Configurar Node.js e NPM.
+* [ ] **ID 16** — Utilizar boas práticas de versionamento com Git e GitHub.
+* [ ] **ID 17** — Manter o README padronizado e atualizado.
+* [ ] **ID 18** — Organizar os arquivos do projeto de forma modular.
+* [ ] **ID 19** — Configurar ESLint e Prettier.
+
+## RA4 — Bibliotecas JavaScript
+
+* [ ] **ID 20** — Utilizar jQuery para manipulação do DOM e interatividade.
+* [ ] **ID 21** — Utilizar o jQuery Mask Plugin ou biblioteca equivalente.
+
+## RA5 — APIs
+
+* [ ] **ID 22** — Realizar requisições assíncronas para persistir dados no JSON Server.
+* [ ] **ID 23** — Realizar requisições assíncronas para consultar dados do JSON Server.
+* [ ] **ID 24** — Consumir a API pública ViaCEP e tratar possíveis erros.
 
 ---
 
-## Execução Local
+## Instruções de Execução
 
-### 1. Clonar o projeto
+### 1. Clonar o repositório
 
 ```bash
-git clone URL-DO-REPOSITORIO
+git clone https://github.com/lolo-irl/techfix.git
 ```
 
-### 2. Entrar na pasta
+### 2. Entrar no projeto
 
 ```bash
 cd techfix
@@ -300,15 +296,23 @@ npm run server
 npm run sass
 ```
 
-### 6. Executar a aplicação
+### 6. Executar o projeto
 
-A aplicação poderá ser aberta utilizando um servidor local, como a extensão Live Server do Visual Studio Code.
+Abrir a aplicação utilizando um servidor local, como o **Live Server** do Visual Studio Code.
+
+---
+
+## Site em Produção
+
+O frontend será publicado utilizando **GitHub Pages**.
+
+**Link:** `A definir`
 
 ---
 
 ## Telas da Aplicação
 
-As imagens serão adicionadas durante o desenvolvimento.
+As imagens serão adicionadas após a criação do protótipo e implementação das páginas.
 
 ### Home
 
@@ -325,3 +329,4 @@ As imagens serão adicionadas durante o desenvolvimento.
 ### Solicitações
 
 `Imagem a adicionar`
+
