@@ -2,136 +2,163 @@
 
 ## 1. Introdução
 
-Este documento descreve a arquitetura técnica do **TechFix**, uma aplicação web responsiva destinada ao cadastro e gerenciamento de solicitações de manutenção de computadores.
+Este documento descreve a arquitetura técnica planejada para o **TechFix**, uma aplicação web responsiva destinada à consulta de serviços e ao cadastro de solicitações de manutenção de computadores.
 
-A aplicação será predominantemente client-side e utilizará APIs para persistência e obtenção de dados.
+O documento apresenta:
+
+* Arquitetura da aplicação;
+* Tecnologias utilizadas;
+* Framework CSS;
+* Bibliotecas JavaScript;
+* Design System;
+* Design Tokens;
+* Entidades;
+* Modelo de dados;
+* Contratos da API;
+* Organização do projeto;
+* Estratégia de responsividade.
 
 ---
 
 # 2. Visão Geral da Arquitetura
 
-A estrutura lógica da aplicação será:
+O TechFix será uma aplicação predominantemente **client-side**.
+
+A interface será executada diretamente no navegador e será responsável por realizar as validações, manipular o DOM, armazenar informações temporárias e se comunicar com APIs externas.
 
 ```text
-                    ┌────────────────────┐
-                    │      Usuário       │
-                    └─────────┬──────────┘
-                              │
-                              ▼
-                    ┌────────────────────┐
-                    │ HTML + Bootstrap   │
-                    │     Interface      │
-                    └─────────┬──────────┘
-                              │
-                              ▼
-                ┌───────────────────────────┐
-                │ JavaScript ES6+ / jQuery  │
-                └─────────────┬─────────────┘
-                              │
-               ┌──────────────┼──────────────┐
-               │              │              │
-               ▼              ▼              ▼
-        LocalStorage     JSON Server       ViaCEP
-                         API Fake        API Pública
+                    ┌─────────────────────┐
+                    │       Usuário       │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │   HTML + Bootstrap  │
+                    │      Interface      │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                  ┌─────────────────────────┐
+                  │ JavaScript ES6+ / jQuery│
+                  └────────────┬────────────┘
+                               │
+             ┌─────────────────┼─────────────────┐
+             │                 │                 │
+             ▼                 ▼                 ▼
+      Web Storage        JSON Server          ViaCEP
+      Persistência        API Fake          API Pública
+         local
 ```
 
 ---
 
 # 3. Tecnologias
 
-## HTML5
+## 3.1 HTML5
 
-Será utilizado para estruturar semanticamente as páginas da aplicação.
+HTML5 será utilizado para construir a estrutura semântica das páginas.
 
-Elementos previstos:
+Serão utilizados elementos como:
 
-* `header`;
-* `nav`;
-* `main`;
-* `section`;
-* `article`;
-* `form`;
-* `footer`.
+```text
+header
+nav
+main
+section
+article
+form
+footer
+```
 
 ---
 
-## CSS3
+## 3.2 CSS3
 
-Será utilizado para personalizações visuais que não serão realizadas diretamente pelo Bootstrap.
+CSS personalizado será utilizado para complementar o Bootstrap e implementar características específicas da identidade visual.
 
-Também será utilizado para demonstrar conhecimentos de:
+Também será utilizado para aplicar:
 
 * CSS Grid;
 * Flexbox;
-* Unidades relativas;
 * Media queries;
-* `clamp()`;
-* `object-fit`.
+* Unidades relativas;
+* Tipografia fluida;
+* Imagens responsivas.
 
 ---
 
-## Bootstrap 5
+## 3.3 Bootstrap 5
 
-O Framework CSS escolhido para o projeto será o **Bootstrap 5**.
+O Framework CSS escolhido é o **Bootstrap 5**.
 
-### Motivos
+### Motivos da escolha
 
-* Grande quantidade de componentes;
 * Sistema de Grid responsivo;
+* Abordagem mobile-first;
+* Grande quantidade de componentes;
 * Boa documentação;
-* Integração simples através de CDN;
-* Componentes JavaScript já disponíveis;
-* Facilidade para implementação mobile-first.
+* Facilidade de utilização;
+* Suporte a componentes JavaScript;
+* Possibilidade de utilização por CDN.
+
+### Recursos previstos
+
+* Grid;
+* Flexbox;
+* Containers;
+* Spacing utilities;
+* Navbar;
+* Cards;
+* Buttons;
+* Forms;
+* Alerts;
+* Modal;
+* Tables;
+* Badges.
 
 ---
 
-# 4. Componentes Bootstrap
+# 4. Componentes do Framework
 
-Pelo menos três componentes do protótipo serão posteriormente substituídos pelos componentes oficiais do Bootstrap.
+Pelo menos três elementos presentes no protótipo serão posteriormente substituídos por componentes prontos do Bootstrap.
 
-## Navbar
+## 4.1 Navbar
 
-Utilizada como principal elemento de navegação.
+Será utilizada para a navegação principal.
 
----
+Páginas disponíveis:
 
-## Cards
-
-Utilizados para apresentar:
-
+* Home;
 * Serviços;
-* Informações da assistência;
+* Solicitar manutenção;
 * Solicitações.
 
 ---
 
-## Modal
+## 4.2 Cards
 
-Utilizado para:
+Serão utilizados principalmente para apresentar:
 
-* Visualizar detalhes;
-* Confirmar ações;
-* Mostrar informações adicionais.
+* Serviços;
+* Destaques;
+* Informações;
+* Solicitações.
 
 ---
 
-## Outros componentes previstos
+## 4.3 Modal
 
-* Buttons;
-* Forms;
-* Alerts;
-* Carousel;
-* Tables;
-* Badges;
-* Accordion.
+Será utilizado para situações como:
+
+* Exibição de detalhes de um serviço;
+* Confirmação de ações;
+* Feedback de operações.
 
 ---
 
 # 5. Sass
 
-O projeto utilizará **Sass na sintaxe SCSS**.
-
-O objetivo será melhorar a organização e reaproveitamento do CSS.
+O projeto utilizará **Sass com sintaxe SCSS** para organização do código de estilo.
 
 Serão utilizados:
 
@@ -140,7 +167,7 @@ Serão utilizados:
 * Funções;
 * Partials.
 
-Estrutura prevista:
+Estrutura planejada:
 
 ```text
 scss/
@@ -150,52 +177,72 @@ scss/
 └── style.scss
 ```
 
+O arquivo `style.scss` será compilado para:
+
+```text
+css/style.css
+```
+
 ---
 
 # 6. JavaScript
 
-Será utilizado JavaScript ES6+.
+Será utilizado JavaScript Vanilla ES6+.
 
 Principais responsabilidades:
 
-* Manipulação dinâmica do DOM;
+* Manipulação do DOM;
 * Eventos;
 * Validação;
 * Web Storage;
 * Comunicação com APIs;
 * Renderização dinâmica;
-* Manipulação de dados JSON;
+* Manipulação de objetos JSON;
 * Tratamento de erros.
+
+Serão utilizados recursos modernos como:
+
+```text
+const
+let
+arrow functions
+template literals
+fetch
+Promise
+async
+await
+try
+catch
+```
 
 ---
 
 # 7. jQuery
 
-O jQuery será utilizado em funcionalidades específicas.
+O jQuery será utilizado em funcionalidades específicas da aplicação.
 
-Exemplos:
+Possíveis usos:
 
-* Pesquisa de serviços;
-* Filtragem;
 * Eventos;
+* Pesquisa de serviços;
+* Filtros;
 * Manipulação de elementos;
-* Efeitos simples.
+* Alteração de classes;
+* Pequenas animações.
 
 ---
 
 # 8. jQuery Mask Plugin
 
-Será utilizado o **jQuery Mask Plugin**.
+Será utilizado o **jQuery Mask Plugin** para aplicar máscaras em campos do formulário.
 
-Campos previstos:
-
-### Telefone
+## Telefone
 
 ```text
 (00) 00000-0000
 ```
 
-### CEP
+## CEP
 
 ```text
 00000-000
@@ -205,21 +252,21 @@ Campos previstos:
 
 # 9. Node.js e NPM
 
-Node.js e NPM serão utilizados durante o desenvolvimento.
+Node.js e NPM serão utilizados no ambiente de desenvolvimento.
 
 Principais responsabilidades:
 
 * Gerenciamento de dependências;
-* JSON Server;
-* Sass;
+* Execução do JSON Server;
+* Compilação do Sass;
 * ESLint;
 * Prettier.
 
 ---
 
-# 10. JSON Server
+# 10. API Fake — JSON Server
 
-Será utilizado para fornecer uma API REST simulada.
+O **JSON Server** será utilizado para simular uma API REST.
 
 Arquivo principal:
 
@@ -236,72 +283,88 @@ Estrutura inicial:
 }
 ```
 
----
-
-# 11. API Pública
-
-A API pública escolhida será:
-
-## ViaCEP
-
-Sua função será obter informações de endereço a partir de um CEP brasileiro.
-
-Fluxo:
+Os dois recursos principais serão:
 
 ```text
-Usuário
-  ↓
-Digita CEP
-  ↓
-JavaScript valida
-  ↓
+/services
+/requests
+```
+
+---
+
+# 11. API Pública — ViaCEP
+
+A API pública utilizada será a **ViaCEP**.
+
+Ela permitirá consultar automaticamente informações de endereço utilizando um CEP brasileiro.
+
+## Fluxo
+
+```text
+Usuário informa o CEP
+        ↓
+JavaScript valida o valor
+        ↓
 fetch()
-  ↓
-ViaCEP
-  ↓
+        ↓
+API ViaCEP
+        ↓
 Resposta JSON
-  ↓
+        ↓
 Preenchimento do formulário
 ```
 
+Dados utilizados:
+
+* Logradouro;
+* Bairro;
+* Localidade;
+* UF.
+
 ---
 
-# 12. Tratamento de Erros da API
+# 12. Tratamento de Erros
 
-As requisições utilizarão:
+As chamadas às APIs deverão possuir tratamento de erro.
+
+Estrutura prevista:
 
 ```javascript
 try {
-    // consulta
+    // requisição
 } catch (error) {
-    // tratamento
+    // tratamento do erro
 }
 ```
 
-Situações tratadas:
+Situações possíveis:
 
 * CEP inválido;
 * CEP inexistente;
-* Erro de conexão;
-* Falha na API.
+* Falha de conexão;
+* JSON Server indisponível;
+* Erro ao cadastrar uma solicitação;
+* Erro ao carregar dados.
 
 ---
 
 # 13. Design System
 
-O Design System deverá transmitir:
+O Design System do TechFix deverá transmitir:
 
 * Tecnologia;
-* Organização;
 * Confiança;
+* Organização;
 * Simplicidade;
-* Profissionalismo.
+* Clareza.
+
+A identidade visual deverá permanecer consistente em todas as páginas.
 
 ---
 
 # 14. Design Tokens
 
-## Cores
+## 14.1 Paleta de Cores
 
 ### Primary
 
@@ -313,10 +376,8 @@ Utilização:
 
 * Botões principais;
 * Links;
-* Destaques;
+* Elementos de destaque;
 * Elementos interativos.
-
----
 
 ### Primary Dark
 
@@ -326,10 +387,8 @@ Utilização:
 
 Utilização:
 
-* Hover;
+* Estados hover;
 * Elementos de maior contraste.
-
----
 
 ### Secondary
 
@@ -339,10 +398,7 @@ Utilização:
 
 Utilização:
 
-* Informações secundárias;
-* Elementos de apoio.
-
----
+* Textos e componentes secundários.
 
 ### Background
 
@@ -352,9 +408,7 @@ Utilização:
 
 Utilização:
 
-* Fundo geral da aplicação.
-
----
+* Fundo principal da aplicação.
 
 ### Surface
 
@@ -368,15 +422,11 @@ Utilização:
 * Formulários;
 * Modais.
 
----
-
 ### Text Primary
 
 ```text
 #0F172A
 ```
-
----
 
 ### Text Secondary
 
@@ -384,15 +434,11 @@ Utilização:
 #64748B
 ```
 
----
-
 ### Success
 
 ```text
 #16A34A
 ```
-
----
 
 ### Warning
 
@@ -400,17 +446,17 @@ Utilização:
 #F59E0B
 ```
 
----
-
 ### Danger
 
 ```text
 #DC2626
 ```
 
+> Os valores poderão ser refinados após a finalização do protótipo no Google Stitch.
+
 ---
 
-# 15. Design Tokens em Sass
+# 15. Tokens em SCSS
 
 ```scss
 $color-primary: #2563eb;
@@ -432,7 +478,7 @@ $color-danger: #dc2626;
 
 # 16. Tipografia
 
-A fonte principal será:
+A fonte principal planejada é:
 
 **Inter**
 
@@ -446,16 +492,14 @@ font-family: "Inter", Arial, sans-serif;
 
 # 17. Escala Tipográfica
 
-Exemplo:
-
 ```scss
 $font-size-sm: 0.875rem;
-$font-size-md: 1rem;
+$font-size-base: 1rem;
 $font-size-lg: 1.25rem;
 $font-size-xl: 2rem;
 ```
 
-Títulos principais poderão utilizar tipografia fluida:
+Os títulos poderão utilizar tipografia fluida:
 
 ```css
 .hero-title {
@@ -475,6 +519,18 @@ $spacing-lg: 2rem;
 $spacing-xl: 4rem;
 ```
 
+As unidades relativas deverão ser priorizadas.
+
+Serão utilizados principalmente:
+
+```text
+rem
+em
+%
+vw
+vh
+```
+
 ---
 
 # 19. Bordas
@@ -489,32 +545,34 @@ $radius-lg: 1rem;
 
 # 20. Responsividade
 
-A aplicação utilizará abordagem **mobile-first**.
+A aplicação seguirá uma abordagem **mobile-first**.
 
-Serão consideradas pelo menos duas versões durante a prototipação:
+O protótipo deverá possuir pelo menos duas versões:
 
 * Mobile;
 * Desktop.
 
-O Bootstrap será utilizado para a maior parte do sistema responsivo.
+A maior parte da responsividade será implementada utilizando o Bootstrap.
 
-Também serão utilizadas áreas com CSS puro para demonstrar:
+Também serão implementadas partes do layout utilizando CSS puro através de:
 
-```text
-display: flex
+```css
+display: flex;
 ```
 
 e:
 
-```text
-display: grid
+```css
+display: grid;
 ```
 
 ---
 
 # 21. Imagens Responsivas
 
-Imagens deverão utilizar:
+As imagens deverão possuir comportamento responsivo.
+
+Exemplo:
 
 ```css
 img {
@@ -523,7 +581,7 @@ img {
 }
 ```
 
-Para imagens de Cards:
+Cards poderão utilizar:
 
 ```css
 .service-card img {
@@ -537,13 +595,13 @@ Para imagens de Cards:
 
 # 22. Otimização de Imagens
 
-Será dada preferência ao formato:
+As imagens principais deverão preferencialmente utilizar o formato:
 
 ```text
 WebP
 ```
 
-Quando necessário, poderão ser utilizados:
+Quando necessário, serão utilizados recursos como:
 
 ```html
 <picture>
@@ -557,22 +615,40 @@ srcset
 
 ---
 
-# 23. Entidades
+# 23. Web Storage
 
-A aplicação terá inicialmente três entidades conceituais principais:
+O Web Storage será utilizado para armazenar temporariamente dados do formulário de solicitação.
 
-1. Cliente;
-2. Serviço;
-3. Solicitação.
+Chave planejada:
+
+```text
+techfix_request_draft
+```
+
+Exemplo:
+
+```json
+{
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "telefone": "(42) 99999-9999"
+}
+```
 
 ---
 
 # 24. Modelo de Dados
 
+O projeto possuirá três entidades conceituais principais:
+
+* Cliente;
+* Serviço;
+* Solicitação.
+
 ```mermaid
 erDiagram
     CLIENTE ||--o{ SOLICITACAO : realiza
-    SERVICO ||--o{ SOLICITACAO : solicitado_em
+    SERVICO ||--o{ SOLICITACAO : possui
 
     CLIENTE {
         int id PK
@@ -599,9 +675,6 @@ erDiagram
         int id PK
         int clienteId
         int servicoId
-        string clienteNome
-        string clienteEmail
-        string clienteTelefone
         string tipoEquipamento
         string marca
         string modelo
@@ -616,9 +689,7 @@ erDiagram
 
 # 25. Entidade Cliente
 
-Representa a pessoa responsável pela solicitação.
-
-Campos:
+Representa a pessoa que solicita um atendimento.
 
 | Campo      | Tipo   | Obrigatório |
 | ---------- | ------ | ----------- |
@@ -636,7 +707,7 @@ Campos:
 
 # 26. Entidade Serviço
 
-Representa um serviço oferecido.
+Representa um serviço disponibilizado pela assistência.
 
 | Campo         | Tipo   | Obrigatório |
 | ------------- | ------ | ----------- |
@@ -651,14 +722,12 @@ Representa um serviço oferecido.
 
 # 27. Entidade Solicitação
 
-Representa um pedido de manutenção.
+Representa uma solicitação de manutenção.
 
 | Campo              | Tipo   | Obrigatório |
 | ------------------ | ------ | ----------- |
 | id                 | number | Sim         |
-| clienteNome        | string | Sim         |
-| clienteEmail       | string | Sim         |
-| clienteTelefone    | string | Sim         |
+| clienteId          | number | Sim         |
 | servicoId          | number | Sim         |
 | tipoEquipamento    | string | Sim         |
 | marca              | string | Sim         |
@@ -670,13 +739,13 @@ Representa um pedido de manutenção.
 
 ---
 
-# 28. Contrato da API — Serviços
+# 28. Contratos da API Fake
 
 ## GET `/services`
 
 Retorna todos os serviços cadastrados.
 
-### Exemplo de resposta
+### Exemplo
 
 ```json
 [
@@ -693,11 +762,15 @@ Retorna todos os serviços cadastrados.
 
 ---
 
-# 29. Contrato da API — Solicitações
+## GET `/services/:id`
+
+Retorna um serviço específico.
+
+---
 
 ## GET `/requests`
 
-Retorna todas as solicitações.
+Retorna todas as solicitações cadastradas.
 
 ---
 
@@ -715,9 +788,7 @@ Cria uma nova solicitação.
 
 ```json
 {
-  "clienteNome": "João Silva",
-  "clienteEmail": "joao@email.com",
-  "clienteTelefone": "(42) 99999-9999",
+  "clienteId": 1,
   "servicoId": 1,
   "tipoEquipamento": "Notebook",
   "marca": "Dell",
@@ -725,7 +796,7 @@ Cria uma nova solicitação.
   "descricaoProblema": "Notebook apresenta lentidão.",
   "preferenciaContato": "WhatsApp",
   "status": "Pendente",
-  "dataSolicitacao": "2026-08-25"
+  "dataSolicitacao": "2026-08-27"
 }
 ```
 
@@ -735,13 +806,15 @@ Cria uma nova solicitação.
 
 Remove uma solicitação.
 
+Essa funcionalidade será opcional.
+
 ---
 
 ## PUT `/requests/:id`
 
-Atualiza uma solicitação inteira.
+Atualiza completamente uma solicitação.
 
-Poderá ser implementado posteriormente.
+Poderá ser implementado futuramente.
 
 ---
 
@@ -749,35 +822,13 @@ Poderá ser implementado posteriormente.
 
 Atualiza parcialmente uma solicitação.
 
-Poderá ser utilizado futuramente para alterar o status.
+Poderá ser utilizado futuramente para alterar apenas o status.
 
 ---
 
-# 30. Web Storage
+# 29. Validação de Formulário
 
-O projeto utilizará Web Storage para salvar temporariamente dados do formulário.
-
-Chave sugerida:
-
-```text
-techfix_request_draft
-```
-
-Exemplo conceitual:
-
-```json
-{
-  "nome": "João",
-  "email": "joao@email.com",
-  "telefone": "(42) 99999-9999"
-}
-```
-
----
-
-# 31. Validação
-
-O formulário utilizará validação HTML nativa.
+O formulário utilizará recursos nativos do HTML.
 
 Exemplos:
 
@@ -801,20 +852,16 @@ maxlength
 pattern
 ```
 
----
+Também serão utilizadas expressões regulares em JavaScript.
 
-# 32. Regex
-
-Expressões regulares serão utilizadas para validações personalizadas.
-
-Campos previstos:
+Campos previstos para validação customizada:
 
 * Telefone;
 * CEP.
 
 ---
 
-# 33. Organização JavaScript
+# 30. Organização JavaScript
 
 ```text
 js/
@@ -826,37 +873,39 @@ js/
 
 ## `main.js`
 
-Funções compartilhadas entre páginas.
+Responsável pelas funcionalidades compartilhadas entre páginas.
 
 ## `services.js`
 
 Responsável por:
 
-* Carregar serviços;
+* Buscar serviços;
+* Renderizar cards;
 * Pesquisar;
 * Filtrar;
-* Renderizar Cards.
+* Abrir detalhes.
 
 ## `request-form.js`
 
 Responsável por:
 
-* Validação;
-* ViaCEP;
+* Validação do formulário;
+* Máscaras;
 * Web Storage;
-* Envio do formulário.
+* Consulta ViaCEP;
+* Envio da solicitação.
 
 ## `requests.js`
 
 Responsável por:
 
-* Carregar solicitações;
-* Renderizar dados;
-* Excluir solicitações.
+* Consultar solicitações;
+* Renderizar a listagem;
+* Excluir registros, quando implementado.
 
 ---
 
-# 34. Estrutura do Projeto
+# 31. Estrutura de Diretórios
 
 ```text
 techfix/
@@ -891,7 +940,6 @@ techfix/
 │
 ├── db.json
 ├── package.json
-├── package-lock.json
 ├── .gitignore
 ├── .eslintrc
 ├── .prettierrc
@@ -900,23 +948,23 @@ techfix/
 
 ---
 
-# 35. Ferramentas de Qualidade
+# 32. Ferramentas de Qualidade
 
 ## ESLint
 
-Será utilizado para identificação de problemas e manutenção de padrões no JavaScript.
+Será utilizado para identificar problemas e manter padrões de qualidade no JavaScript.
 
 ## Prettier
 
-Será utilizado para formatação automática do código.
+Será utilizado para padronizar automaticamente a formatação dos arquivos do projeto.
 
 ---
 
-# 36. Git
+# 33. Controle de Versão
 
-O projeto utilizará Git para controle de versão.
+Será utilizado Git para o controle de versão.
 
-A branch principal será:
+Branch principal:
 
 ```text
 main
@@ -928,76 +976,72 @@ Também será utilizado:
 .gitignore
 ```
 
-para evitar versionamento de arquivos desnecessários.
-
----
-
-# 37. GitHub
+para evitar o versionamento de arquivos desnecessários.
 
 O GitHub será utilizado para:
 
-* Hospedar o repositório;
-* Registrar o histórico de desenvolvimento;
+* Armazenar o repositório;
+* Registrar o histórico do projeto;
 * Armazenar a documentação;
-* Publicar o frontend através do GitHub Pages.
+* Publicar o frontend.
 
 ---
 
-# 38. Deploy
+# 34. Deploy
 
-A aplicação frontend será publicada utilizando:
+O frontend da aplicação será publicado utilizando **GitHub Pages**.
 
-**GitHub Pages**
+As dependências utilizadas na aplicação final poderão ser carregadas por CDN quando necessário.
 
-O JSON Server será utilizado principalmente durante o desenvolvimento e demonstração das funcionalidades de API fake.
-
----
-
-# 39. Relação entre Requisitos Técnicos e Indicadores
-
-| Recurso                       | ID |
-| ----------------------------- | -: |
-| Stitch/Figma mobile + desktop | 01 |
-| Bootstrap Grid/Flexbox        | 02 |
-| CSS Grid/Flexbox              | 03 |
-| Navbar, Cards, Modal          | 04 |
-| rem, %, vw e vh               | 05 |
-| Design Tokens                 | 06 |
-| Sass                          | 07 |
-| clamp()/media queries         | 08 |
-| object-fit                    | 09 |
-| WebP/srcset/picture           | 10 |
-| Validação HTML                | 11 |
-| Regex                         | 12 |
-| Select/Radio/Checkbox         | 13 |
-| LocalStorage                  | 14 |
-| Node.js/NPM                   | 15 |
-| Git/GitHub                    | 16 |
-| README                        | 17 |
-| Arquitetura modular           | 18 |
-| ESLint/Prettier               | 19 |
-| jQuery                        | 20 |
-| jQuery Mask Plugin            | 21 |
-| JSON Server POST              | 22 |
-| JSON Server GET               | 23 |
-| ViaCEP                        | 24 |
+O JSON Server será utilizado principalmente durante o desenvolvimento e demonstração do funcionamento da API fake.
 
 ---
 
-# 40. Componentes a Destacar no Protótipo
+# 35. Relação com os Indicadores de Desempenho
 
-Durante a apresentação da Entrega 1 deverão ser destacados no protótipo pelo menos os seguintes elementos:
+| Recurso                    | Indicador |
+| -------------------------- | --------: |
+| Protótipo mobile e desktop |     ID 01 |
+| Bootstrap Grid/Flexbox     |     ID 02 |
+| CSS Grid/Flexbox           |     ID 03 |
+| Navbar, Cards e Modal      |     ID 04 |
+| Unidades relativas         |     ID 05 |
+| Design System              |     ID 06 |
+| Sass                       |     ID 07 |
+| `clamp()` e media queries  |     ID 08 |
+| `object-fit`               |     ID 09 |
+| WebP e `srcset`/`picture`  |     ID 10 |
+| Validação HTML             |     ID 11 |
+| Regex                      |     ID 12 |
+| Select, Radio e Checkbox   |     ID 13 |
+| Web Storage                |     ID 14 |
+| Node.js e NPM              |     ID 15 |
+| Git e GitHub               |     ID 16 |
+| README                     |     ID 17 |
+| Organização modular        |     ID 18 |
+| ESLint e Prettier          |     ID 19 |
+| jQuery                     |     ID 20 |
+| jQuery Mask Plugin         |     ID 21 |
+| JSON Server POST           |     ID 22 |
+| JSON Server GET            |     ID 23 |
+| ViaCEP                     |     ID 24 |
 
-### Navbar
+---
 
-Será posteriormente implementada utilizando o componente Navbar do Bootstrap.
+# 36. Componentes que serão substituídos pelo Bootstrap
 
-### Cards de Serviço
+Durante a prototipação no Google Stitch deverão ser destacados visualmente pelo menos três componentes que posteriormente serão implementados utilizando Bootstrap.
 
-Serão implementados utilizando os Cards do Bootstrap.
+## Navbar
 
-### Modal de Detalhes
+Componente responsável pela navegação principal.
 
-Será implementado utilizando o Modal do Bootstrap.
+## Cards de Serviços
 
-Esses elementos demonstram diretamente a relação entre o protótipo e a futura implementação utilizando Framework CSS.
+Componentes utilizados para apresentar os serviços disponíveis.
+
+## Modal
+
+Componente utilizado para apresentar detalhes, confirmações ou informações adicionais.
+
+Esses três elementos deverão ser apontados durante a apresentação da primeira entrega.
