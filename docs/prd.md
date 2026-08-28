@@ -3,185 +3,179 @@
 ## 1. Identificação
 
 **Projeto:** TechFix
-**Tema:** Sistema de Solicitação e Gerenciamento de Manutenção de Computadores
-**Autor:** Nicolas
+**Tema:** Sistema Web para Solicitação de Manutenção de Computadores
+**Autor:** Nicolas Costa Boese
 
 ---
 
-# 2. Visão do Produto
+# 2. Visão Geral
 
-O **TechFix** é uma aplicação web responsiva destinada a facilitar o processo de solicitação de manutenção de computadores e notebooks.
+O **TechFix** é uma aplicação web responsiva destinada à consulta de serviços e ao cadastro de solicitações de manutenção de computadores e notebooks.
 
-A aplicação permitirá que visitantes conheçam os serviços oferecidos pela assistência técnica e que clientes registrem solicitações informando seus dados pessoais, informações sobre o equipamento e uma descrição do problema apresentado.
+O sistema permitirá que pessoas interessadas em serviços de assistência técnica consultem os serviços disponíveis e registrem uma solicitação informando seus dados pessoais, endereço, equipamento e problema apresentado.
 
-O projeto busca aplicar os conhecimentos desenvolvidos durante a disciplina de forma progressiva, utilizando tecnologias de desenvolvimento web frontend, bibliotecas JavaScript, Framework CSS, Web Storage e integração com APIs.
+O projeto será desenvolvido progressivamente ao longo da disciplina, aplicando os conteúdos estudados em HTML, CSS, Framework CSS, Sass, JavaScript, bibliotecas JavaScript, Web Storage e consumo de APIs.
 
 ---
 
 # 3. Problema
 
-Solicitações de manutenção realizadas exclusivamente por telefone ou aplicativos de mensagens podem gerar dificuldades na organização dos atendimentos.
+Solicitações de manutenção realizadas apenas por telefone ou aplicativos de mensagens podem gerar informações incompletas e dificultar a organização dos atendimentos.
 
-Frequentemente informações importantes deixam de ser fornecidas pelo cliente, como:
+O cliente pode deixar de informar dados importantes como:
 
-* Tipo de equipamento;
+* Tipo do equipamento;
 * Marca;
 * Modelo;
-* Defeito apresentado;
 * Serviço desejado;
-* Dados de contato;
+* Problema apresentado;
+* Telefone;
+* E-mail;
 * Endereço.
 
-Isso pode resultar em várias mensagens adicionais entre cliente e assistência técnica antes mesmo do início do atendimento.
-
-O TechFix busca centralizar essas informações através de um formulário estruturado.
+Isso pode exigir várias mensagens adicionais entre a assistência e o cliente antes mesmo do início do atendimento.
 
 ---
 
-# 4. Solução
+# 4. Solução Proposta
 
-O TechFix fornecerá uma interface na qual o cliente poderá:
+O TechFix oferecerá uma interface web estruturada na qual o usuário poderá:
 
-1. Consultar os serviços disponíveis;
-2. Encontrar informações sobre cada serviço;
-3. Registrar seus dados;
-4. Informar os dados do equipamento;
-5. Descrever o problema apresentado;
-6. Selecionar o serviço desejado;
-7. Consultar automaticamente seu endereço utilizando o CEP;
-8. Enviar uma solicitação de manutenção;
-9. Consultar posteriormente as solicitações cadastradas.
+1. Conhecer a assistência técnica;
+2. Consultar os serviços disponíveis;
+3. Pesquisar e filtrar serviços;
+4. Visualizar informações detalhadas de um serviço;
+5. Preencher uma solicitação de manutenção;
+6. Consultar automaticamente seu endereço pelo CEP;
+7. Validar os dados informados;
+8. Enviar a solicitação;
+9. Consultar as solicitações cadastradas.
 
 ---
 
 # 5. Objetivo Geral
 
-Desenvolver uma aplicação web responsiva para gerenciamento de solicitações de manutenção de computadores, aplicando corretamente as tecnologias e conceitos trabalhados durante a disciplina.
+Desenvolver uma aplicação web responsiva que facilite o registro e a consulta de solicitações de manutenção de computadores.
 
 ---
 
 # 6. Objetivos Específicos
 
-A aplicação deverá:
+O projeto deverá:
 
-* Possuir interface responsiva;
-* Utilizar Framework CSS;
-* Utilizar CSS personalizado;
-* Implementar Design System consistente;
-* Utilizar Sass;
-* Possuir formulários validados;
+* Possuir pelo menos três páginas HTML distintas;
+* Funcionar corretamente em mobile e desktop;
+* Utilizar Bootstrap como Framework CSS;
+* Possuir componentes responsivos;
+* Utilizar um Design System consistente;
+* Possuir formulário com validação;
 * Utilizar Web Storage;
-* Manipular elementos do DOM;
+* Manipular dinamicamente o DOM;
 * Utilizar jQuery;
-* Consumir uma API pública;
 * Consumir uma API fake;
-* Renderizar dados dinamicamente.
+* Consumir uma API pública;
+* Apresentar dados de forma dinâmica.
 
 ---
 
 # 7. Público-Alvo
 
-O público-alvo do TechFix são pessoas que possuem computadores ou notebooks e precisam contratar serviços de:
+O público-alvo do TechFix são pessoas que possuem computadores ou notebooks e desejam contratar algum serviço relacionado a:
 
 * Manutenção;
 * Limpeza;
 * Formatação;
-* Instalação de software;
-* Upgrade;
 * Diagnóstico;
-* Reparos básicos.
-
-O sistema é voltado principalmente para usuários que desejam realizar uma solicitação de forma rápida e organizada.
+* Upgrade;
+* Instalação de programas;
+* Correção de problemas de hardware ou software.
 
 ---
 
-# 8. Atores
+# 8. Atores do Sistema
 
 ## 8.1 Visitante
 
-Pessoa que acessa a aplicação sem necessariamente cadastrar uma solicitação.
+Pessoa que acessa a aplicação para conhecer os serviços disponíveis.
 
 O visitante poderá:
 
 * Visualizar a página inicial;
-* Conhecer a assistência;
-* Navegar entre as páginas;
-* Consultar serviços;
+* Navegar pelo sistema;
+* Consultar os serviços;
 * Pesquisar serviços;
-* Visualizar detalhes dos serviços.
+* Filtrar serviços;
+* Visualizar detalhes de um serviço.
 
 ---
 
 ## 8.2 Cliente
 
-Usuário que deseja solicitar um serviço de manutenção.
+Pessoa que deseja registrar uma solicitação de manutenção.
 
 O cliente poderá:
 
-* Preencher seus dados;
-* Informar seu telefone;
-* Informar seu endereço;
-* Consultar endereço pelo CEP;
+* Informar seus dados pessoais;
+* Informar telefone e e-mail;
+* Informar o CEP;
+* Consultar automaticamente o endereço;
 * Informar os dados do equipamento;
-* Selecionar um serviço;
+* Selecionar o serviço desejado;
 * Descrever o problema;
+* Escolher sua preferência de contato;
 * Enviar uma solicitação;
 * Consultar solicitações cadastradas.
 
-Não será necessária autenticação nesta versão do projeto.
+Nesta versão do projeto não será necessária autenticação de usuários.
 
 ---
 
-# 9. Escopo
+# 9. Escopo Funcional
 
-A aplicação possuirá inicialmente quatro páginas principais.
+A aplicação será composta inicialmente por quatro páginas.
 
----
+## 9.1 Home
 
-## 9.1 Página Inicial
-
-A página inicial será responsável pela apresentação da aplicação.
-
-Deverá apresentar:
+A página inicial deverá apresentar:
 
 * Navbar;
-* Hero;
+* Seção principal de apresentação;
 * Descrição do TechFix;
 * Serviços em destaque;
 * Benefícios da assistência;
-* Chamada para solicitar manutenção;
-* Rodapé.
+* Chamada para solicitar atendimento;
+* Footer.
 
 ---
 
-## 9.2 Página de Serviços
+## 9.2 Serviços
 
-A página de serviços apresentará os serviços disponíveis.
+A página apresentará os serviços de manutenção disponíveis.
 
-Cada serviço poderá conter:
+Cada serviço deverá conter:
 
 * Nome;
 * Categoria;
 * Descrição;
 * Imagem;
-* Preço estimado;
-* Botão de detalhes;
-* Botão para solicitar atendimento.
+* Preço estimado, quando aplicável.
 
-Também será possível implementar:
+A página poderá disponibilizar:
 
-* Pesquisa;
-* Filtro por categoria.
+* Pesquisa por nome;
+* Filtro por categoria;
+* Modal com detalhes;
+* Botão para iniciar uma solicitação.
 
 ---
 
-## 9.3 Página de Solicitação
+## 9.3 Solicitar Manutenção
 
-A página conterá o formulário principal da aplicação.
+A página será responsável pelo cadastro de uma nova solicitação.
 
-O formulário poderá conter:
+O formulário deverá conter:
 
-### Dados pessoais
+### Dados do cliente
 
 * Nome;
 * E-mail;
@@ -204,67 +198,63 @@ O formulário poderá conter:
 ### Atendimento
 
 * Serviço desejado;
-* Categoria do problema;
 * Preferência de contato;
-* Descrição do problema.
-
-Também serão utilizados campos do tipo:
-
-* `select`;
-* `radio`;
-* `checkbox`.
+* Descrição do problema;
+* Confirmação dos dados.
 
 ---
 
-## 9.4 Página de Solicitações
+## 9.4 Solicitações
 
-A página apresentará dinamicamente as solicitações cadastradas.
+A página deverá apresentar dinamicamente as solicitações cadastradas.
 
 Cada solicitação poderá apresentar:
 
-* Cliente;
+* Nome do cliente;
 * Serviço;
 * Equipamento;
-* Problema;
+* Marca;
+* Modelo;
+* Descrição do problema;
 * Data;
 * Status.
 
-As informações serão carregadas através de requisições assíncronas ao JSON Server.
+A listagem poderá utilizar cards ou tabela.
 
 ---
 
 # 10. Histórias de Usuário
 
-## US01 — Visualizar a página inicial
+## US01 — Visualizar a aplicação
 
-**Como visitante, quero visualizar uma página inicial clara e responsiva para compreender rapidamente o objetivo do TechFix.**
+**Como visitante, quero visualizar uma página inicial responsiva para entender rapidamente o objetivo do TechFix em qualquer dispositivo.**
 
 ### Critérios de aceitação
 
-* A página deve funcionar em mobile e desktop;
-* Deve possuir identidade visual consistente;
-* Deve apresentar navegação para as demais páginas.
+* A página deve possuir versão mobile e desktop;
+* O conteúdo deve permanecer legível em diferentes tamanhos de tela;
+* Deve possuir navegação para as principais páginas.
 
 ---
 
-## US02 — Navegar pela aplicação
+## US02 — Navegar entre páginas
 
-**Como visitante, quero utilizar uma barra de navegação para acessar facilmente as diferentes áreas da aplicação.**
+**Como visitante, quero utilizar uma barra de navegação para acessar facilmente as diferentes páginas da aplicação.**
 
 ### Critérios de aceitação
 
-* A Navbar deve estar disponível nas páginas principais;
-* Em dispositivos pequenos, a navegação deve ser adaptada para mobile.
+* A Navbar deverá aparecer nas páginas principais;
+* Em telas menores, a navegação deverá se adaptar ao formato mobile.
 
 ---
 
 ## US03 — Visualizar serviços
 
-**Como visitante, quero visualizar os serviços oferecidos para identificar qual manutenção atende às minhas necessidades.**
+**Como visitante, quero consultar os serviços disponíveis para identificar qual opção atende ao problema do meu equipamento.**
 
 ### Critérios de aceitação
 
-Cada serviço deverá apresentar pelo menos:
+Cada serviço deve apresentar:
 
 * Nome;
 * Categoria;
@@ -275,20 +265,20 @@ Cada serviço deverá apresentar pelo menos:
 
 ## US04 — Pesquisar serviços
 
-**Como visitante, quero pesquisar serviços pelo nome para encontrar rapidamente uma opção específica.**
+**Como visitante, quero pesquisar um serviço pelo nome para encontrar rapidamente o atendimento desejado.**
 
 ### Critérios de aceitação
 
-* A pesquisa deverá atualizar os resultados apresentados;
-* A manipulação poderá ser realizada com jQuery.
+* A listagem deverá ser atualizada de acordo com o texto digitado;
+* A interação poderá utilizar jQuery.
 
 ---
 
 ## US05 — Filtrar serviços
 
-**Como visitante, quero filtrar os serviços por categoria para visualizar apenas as opções relevantes.**
+**Como visitante, quero filtrar os serviços por categoria para visualizar apenas opções relacionadas à minha necessidade.**
 
-### Categorias possíveis
+Categorias possíveis:
 
 * Hardware;
 * Software;
@@ -298,105 +288,109 @@ Cada serviço deverá apresentar pelo menos:
 
 ---
 
-## US06 — Visualizar detalhes de um serviço
+## US06 — Visualizar detalhes
 
-**Como visitante, quero visualizar informações detalhadas sobre um serviço antes de realizar uma solicitação.**
+**Como visitante, quero visualizar mais informações sobre um serviço antes de fazer uma solicitação.**
 
-Os detalhes poderão ser apresentados utilizando um **Modal do Bootstrap**.
+### Critérios de aceitação
+
+Os detalhes poderão ser exibidos utilizando um Modal do Bootstrap.
 
 ---
 
-## US07 — Cadastrar uma solicitação
+## US07 — Preencher uma solicitação
 
 **Como cliente, quero preencher um formulário para registrar uma solicitação de manutenção.**
 
 ### Critérios de aceitação
 
-O formulário deverá possuir:
+O formulário deverá:
 
-* Campos obrigatórios;
-* Validação HTML;
-* Validação JavaScript;
-* Feedback de erro;
-* Feedback de sucesso.
+* Possuir campos obrigatórios;
+* Utilizar validação HTML;
+* Utilizar validações JavaScript quando necessário;
+* Exibir mensagens de erro;
+* Exibir mensagem de sucesso.
 
 ---
 
-## US08 — Validar meus dados
+## US08 — Validar informações
 
-**Como cliente, quero ser avisado caso alguma informação esteja inválida para poder corrigir os dados antes de enviar a solicitação.**
+**Como cliente, quero ser informado quando um dado estiver inválido para poder corrigi-lo antes de enviar a solicitação.**
 
-Serão utilizadas:
+### Critérios de aceitação
 
-* Validações HTML nativas;
+Serão utilizados:
+
+* `required`;
+* `type`;
+* `minlength`;
+* `maxlength`;
 * Expressões regulares;
-* JavaScript.
+* Mensagens visuais de validação.
 
 ---
 
 ## US09 — Formatar telefone
 
-**Como cliente, quero que meu telefone seja formatado automaticamente durante a digitação para facilitar o preenchimento.**
+**Como cliente, quero que meu telefone seja formatado automaticamente durante o preenchimento para facilitar a digitação e evitar erros.**
 
-Será utilizado o **jQuery Mask Plugin**.
-
-Exemplo:
+Formato esperado:
 
 ```text
 (42) 99999-9999
 ```
 
----
-
-## US10 — Consultar endereço
-
-**Como cliente, quero informar meu CEP e ter meu endereço preenchido automaticamente para reduzir o preenchimento manual.**
-
-A funcionalidade utilizará a API **ViaCEP**.
+A funcionalidade utilizará o jQuery Mask Plugin.
 
 ---
 
-## US11 — Armazenar formulário temporariamente
+## US10 — Consultar endereço pelo CEP
 
-**Como cliente, quero que parte das informações preenchidas seja salva temporariamente para evitar perder meus dados ao atualizar a página.**
+**Como cliente, quero informar meu CEP e receber automaticamente os dados do meu endereço para reduzir o preenchimento manual.**
 
-A funcionalidade utilizará:
+### Critérios de aceitação
 
-```text
-localStorage
-```
+* O CEP deverá ser validado;
+* A aplicação deverá consultar a ViaCEP;
+* Os campos de endereço deverão ser preenchidos quando possível;
+* Erros deverão ser informados ao usuário.
 
 ---
 
-## US12 — Escolher serviço
+## US11 — Salvar formulário temporariamente
 
-**Como cliente, quero selecionar o serviço desejado para informar à assistência qual manutenção preciso realizar.**
+**Como cliente, quero que parte das informações digitadas seja armazenada temporariamente para evitar perder meu preenchimento caso a página seja recarregada.**
 
-Será utilizado um elemento:
+A funcionalidade utilizará LocalStorage ou SessionStorage.
 
-```html
-<select>
-```
+---
+
+## US12 — Selecionar serviço
+
+**Como cliente, quero escolher o serviço desejado para indicar à assistência qual atendimento preciso.**
+
+Será utilizado um elemento `select`.
 
 ---
 
 ## US13 — Escolher preferência de contato
 
-**Como cliente, quero informar minha forma preferida de contato para facilitar a comunicação com a assistência.**
+**Como cliente, quero escolher minha forma preferida de contato para facilitar a comunicação com a assistência.**
 
-Possíveis opções:
+Opções possíveis:
 
 * WhatsApp;
 * Telefone;
 * E-mail.
 
-Poderão ser utilizados elementos `radio`.
+Serão utilizados elementos `radio`.
 
 ---
 
-## US14 — Confirmar informações
+## US14 — Confirmar envio dos dados
 
-**Como cliente, quero confirmar que os dados informados estão corretos antes de enviar minha solicitação.**
+**Como cliente, quero confirmar que revisei as informações fornecidas antes de enviar minha solicitação.**
 
 Será utilizado um `checkbox`.
 
@@ -404,48 +398,34 @@ Será utilizado um `checkbox`.
 
 ## US15 — Enviar solicitação
 
-**Como cliente, quero enviar a solicitação para que seus dados sejam registrados no sistema.**
+**Como cliente, quero enviar minha solicitação para que ela seja registrada no sistema.**
 
-Os dados serão enviados ao JSON Server utilizando uma requisição:
+### Critérios de aceitação
 
-```text
-POST /requests
-```
-
----
-
-## US16 — Receber confirmação
-
-**Como cliente, quero receber uma mensagem de sucesso quando minha solicitação for cadastrada para ter certeza de que o processo foi concluído.**
-
-A mensagem poderá ser apresentada através de:
-
-* Bootstrap Alert;
-* Modal.
+* Os dados deverão ser enviados ao JSON Server;
+* A requisição deverá ser assíncrona;
+* A aplicação deverá tratar erros;
+* O usuário deverá receber feedback da operação.
 
 ---
 
-## US17 — Consultar solicitações
+## US16 — Consultar solicitações
 
 **Como usuário, quero visualizar as solicitações cadastradas para consultar os atendimentos registrados.**
 
-Os dados serão obtidos utilizando:
+### Critérios de aceitação
 
-```text
-GET /requests
-```
+* Os dados deverão ser carregados do JSON Server;
+* A requisição deverá ser assíncrona;
+* Os elementos deverão ser gerados dinamicamente no DOM.
 
 ---
 
-## US18 — Excluir uma solicitação
+## US17 — Excluir solicitação
 
 **Como usuário, quero excluir uma solicitação cadastrada incorretamente para manter a listagem organizada.**
 
-A operação utilizará:
-
-```text
-DELETE /requests/:id
-```
+Essa funcionalidade é complementar ao escopo mínimo.
 
 ---
 
@@ -453,146 +433,7 @@ DELETE /requests/:id
 
 ## RN01 — Campos obrigatórios
 
-Uma solicitação somente poderá ser enviada caso todos os campos obrigatórios estejam corretamente preenchidos.
-
----
-
-## RN02 — Nome
-
-O cliente deverá informar um nome válido.
-
----
-
-## RN03 — E-mail
-
-O e-mail deverá possuir formato válido.
-
-Exemplo:
-
-```text
-usuario@email.com
-```
-
----
-
-## RN04 — Telefone
-
-O telefone deverá possuir formato brasileiro válido.
-
-Exemplo:
-
-```text
-(42) 99999-9999
-```
-
----
-
-## RN05 — CEP
-
-O CEP deverá possuir oito números.
-
-Exemplo:
-
-```text
-85000-000
-```
-
----
-
-## RN06 — Consulta de endereço
-
-Ao informar um CEP válido, a aplicação deverá tentar consultar a API ViaCEP.
-
----
-
-## RN07 — Falha da API
-
-Caso a ViaCEP não possa retornar os dados, a aplicação deverá informar o erro ao usuário.
-
-O preenchimento manual do endereço continuará disponível.
-
----
-
-## RN08 — Serviço obrigatório
-
-Cada solicitação deverá estar associada a um serviço.
-
----
-
-## RN09 — Equipamento obrigatório
-
-Cada solicitação deverá possuir um tipo de equipamento.
-
----
-
-## RN10 — Descrição do problema
-
-O cliente deverá fornecer uma descrição do problema dentro dos limites definidos pelo formulário.
-
----
-
-## RN11 — Status inicial
-
-Toda nova solicitação será cadastrada inicialmente com o status:
-
-```text
-Pendente
-```
-
----
-
-## RN12 — Confirmação
-
-O cliente deverá confirmar o envio dos dados antes da criação da solicitação.
-
----
-
-# 12. Requisitos Não Funcionais
-
-## RNF01 — Responsividade
-
-Todas as páginas deverão funcionar adequadamente em dispositivos mobile e desktop.
-
----
-
-## RNF02 — Consistência visual
-
-Todas as páginas deverão utilizar o mesmo Design System.
-
----
-
-## RNF03 — Usabilidade
-
-Os elementos de navegação e interação deverão possuir identificação clara.
-
----
-
-## RNF04 — Feedback
-
-A aplicação deverá exibir feedback visual após ações importantes.
-
----
-
-## RNF05 — Compatibilidade
-
-O sistema deverá funcionar nos principais navegadores modernos.
-
----
-
-## RNF06 — Organização
-
-O código deverá ser separado em arquivos e diretórios de acordo com sua responsabilidade.
-
----
-
-## RNF07 — Manutenção
-
-O CSS deverá utilizar Sass para facilitar manutenção e reaproveitamento.
-
----
-
-# 13. Critérios de Sucesso
-
+Uma solicitação somente poderá ser enviada quando todos os campos definidos como obrigatórios estiverem preenchidos corretamente.
 A primeira versão funcional do projeto deverá permitir que o usuário:
 
 1. Acesse a aplicação;
@@ -623,3 +464,128 @@ Nesta versão não serão obrigatórios:
 * Painel administrativo completo.
 
 Essas funcionalidades poderão ser consideradas futuramente.
+## RN02 — Nome
+
+O cliente deverá informar um nome válido.
+
+## RN03 — E-mail
+
+O e-mail deverá possuir formato válido.
+
+## RN04 — Telefone
+
+O telefone deverá seguir o formato brasileiro utilizado pela aplicação.
+
+Exemplo:
+
+```text
+(42) 99999-9999
+```
+
+## RN05 — CEP
+
+O CEP deverá possuir oito dígitos.
+
+Exemplo:
+
+```text
+85000-000
+```
+
+## RN06 — Consulta do CEP
+
+Quando um CEP válido for informado, a aplicação deverá tentar consultar a API ViaCEP.
+
+## RN07 — Erro na consulta
+
+Se a consulta do CEP não puder ser realizada, o sistema deverá informar o problema ao usuário e permitir o preenchimento manual do endereço.
+
+## RN08 — Serviço
+
+Toda solicitação deverá estar associada a um serviço disponível.
+
+## RN09 — Equipamento
+
+Toda solicitação deverá informar pelo menos o tipo e a marca do equipamento.
+
+## RN10 — Descrição
+
+Toda solicitação deverá possuir uma descrição do problema respeitando os limites definidos pelo formulário.
+
+## RN11 — Status inicial
+
+Toda nova solicitação deverá ser criada com o status:
+
+```text
+Pendente
+```
+
+## RN12 — Confirmação
+
+O cliente deverá confirmar os dados antes do envio da solicitação.
+
+---
+
+# 12. Requisitos Não Funcionais
+
+## RNF01 — Responsividade
+
+Todas as páginas deverão funcionar adequadamente em telas mobile e desktop.
+
+## RNF02 — Design consistente
+
+A aplicação deverá seguir o mesmo Design System em todas as páginas.
+
+## RNF03 — Usabilidade
+
+A navegação e as ações principais deverão possuir identificação clara.
+
+## RNF04 — Feedback
+
+A aplicação deverá informar ao usuário o resultado das principais operações.
+
+## RNF05 — Organização
+
+HTML, Sass/CSS e JavaScript deverão ser organizados em arquivos de acordo com suas responsabilidades.
+
+## RNF06 — Compatibilidade
+
+A aplicação deverá funcionar em navegadores modernos.
+
+## RNF07 — Manutenção
+
+O Sass deverá ser utilizado para melhorar a modularização e manutenção dos estilos.
+
+---
+
+# 13. Critérios de Sucesso
+
+O projeto será considerado funcional quando for possível:
+
+1. Acessar a aplicação em mobile e desktop;
+2. Navegar entre as páginas;
+3. Visualizar os serviços;
+4. Pesquisar ou filtrar serviços;
+5. Preencher o formulário;
+6. Receber validações para dados inválidos;
+7. Consultar um CEP;
+8. Enviar uma solicitação ao JSON Server;
+9. Visualizar a solicitação cadastrada.
+
+---
+
+# 14. Fora do Escopo
+
+Para manter o projeto compatível com o tempo e os objetivos da disciplina, não serão obrigatórios nesta versão:
+
+* Login;
+* Cadastro de contas;
+* Autenticação;
+* Recuperação de senha;
+* Pagamentos;
+* Chat;
+* Backend próprio;
+* Banco de dados SQL;
+* Sistema de permissões;
+* Painel administrativo completo.
+
