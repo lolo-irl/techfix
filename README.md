@@ -73,7 +73,7 @@ O protótipo será desenvolvido inicialmente no **Google Stitch**, contemplando 
 
 ### Link do Stich
 
-`[A definir](https://stitch.withgoogle.com/projects/16850269831975528133)`
+`https://stitch.withgoogle.com/projects/16850269831975528133`
 
 ---
 
