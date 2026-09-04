@@ -71,7 +71,7 @@ O protótipo será desenvolvido inicialmente no **Google Stitch**, contemplando 
 * Mobile;
 * Desktop.
 
-### Link do Stich
+### Link do Stitch
 
 `https://stitch.withgoogle.com/projects/16850269831975528133`
 
