@@ -71,11 +71,9 @@ O protótipo será desenvolvido inicialmente no **Google Stitch**, contemplando 
 * Mobile;
 * Desktop.
 
-O protótipo poderá posteriormente ser refinado no Figma.
+### Link do Stich
 
-### Link do Figma
-
-`A definir`
+`[A definir](https://stitch.withgoogle.com/projects/16850269831975528133)`
 
 ---
 
