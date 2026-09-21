@@ -2,9 +2,13 @@
 
 Aplicação web responsiva para consulta de serviços e cadastro de solicitações de manutenção de computadores e notebooks.
 
+---
+
 ## Autor
 
 **Nicolas Costa Boese**
+
+---
 
 ## Descrição do Projeto
 
@@ -28,7 +32,7 @@ A aplicação também será utilizada como projeto prático para aplicação dos
 
 * HTML5;
 * CSS3;
-* Bootstrap;
+* Bootstrap 5;
 * Sass;
 * JavaScript ES6+;
 * jQuery;
@@ -45,21 +49,15 @@ A aplicação também será utilizada como projeto prático para aplicação dos
 O projeto possuirá inicialmente quatro páginas:
 
 ### Home
-
 Página inicial responsável por apresentar o TechFix, seus principais serviços e informações gerais.
 
 ### Serviços
-
-Página responsável por listar os serviços de manutenção disponíveis.
-
-Permitirá pesquisar e filtrar os serviços.
+Página responsável por listar os serviços de manutenção disponíveis. Permitirá pesquisar e filtrar os serviços.
 
 ### Solicitar Manutenção
-
 Página contendo o formulário utilizado para cadastrar uma nova solicitação.
 
 ### Solicitações
-
 Página responsável por apresentar as solicitações registradas no sistema.
 
 ---
@@ -71,9 +69,7 @@ O protótipo será desenvolvido inicialmente no **Google Stitch**, contemplando 
 * Mobile;
 * Desktop.
 
-### Link do Stitch
-
-`https://stitch.withgoogle.com/projects/16850269831975528133`
+ **Link do Stitch:** [Acessar Protótipo](https://stitch.withgoogle.com/projects/16850269831975528133)
 
 ---
 
@@ -81,10 +77,9 @@ O protótipo será desenvolvido inicialmente no **Google Stitch**, contemplando 
 
 O Design System completo da aplicação está documentado em:
 
-[`docs/architecture.md`](./docs/architecture.md)
+ [`docs/architecture.md`](./docs/architecture.md)
 
 O documento apresenta:
-
 * Paleta de cores;
 * Tipografia;
 * Espaçamentos;
@@ -97,69 +92,41 @@ O documento apresenta:
 
 ## Framework CSS
 
-O Framework CSS escolhido para o projeto é:
+**Escolha:** Bootstrap 5 (v5.3.3)
 
-**Bootstrap 5**
+**Justificativa de Escolha:**
+A escolha pelo **Bootstrap 5** deve-se à sua maturidade, documentação completa e suporte robusto para criação de layouts responsivos baseados no sistema de Grid de 12 colunas e utilitários de breakpoint (`sm`, `md`, `lg`, `xl`).
 
-O Bootstrap será utilizado para:
+* **Responsividade:** Facilita a adaptação fluida do layout entre dispositivos mobile e desktop sem a necessidade de reescrever media queries complexas do zero.
+* **Componentes Prontos:** Atende perfeitamente aos elementos desenhados no protótipo, fornecendo componentes nativos como `Navbar`, `Cards` de serviços, `Modais` para confirmações, `Forms` estilizados e `Alerts`.
+* **Ecossistema:** Em sua versão 5.x, o Bootstrap eliminou a dependência do jQuery para o seu funcionamento core, utilizando JavaScript Vanilla modular de alta performance.
+* **Saúde e Licença:** Mantido ativamente no GitHub pela comunidade e sob licença **MIT**, o que garante segurança, estabilidade e conformidade para projetos de código aberto.
 
-* Grid responsivo;
-* Flexbox;
-* Containers;
-* Navbar;
-* Cards;
-* Buttons;
-* Forms;
-* Alerts;
-* Modal;
-* Tabelas;
-* Badges;
-* Utilitários responsivos.
-
-Os principais componentes planejados no protótipo que posteriormente serão implementados com Bootstrap são:
-
-1. Navbar;
-2. Cards de serviços;
-3. Modal de detalhes e confirmação.
-
----
-
-## Dependências
-
-O projeto utilizará:
-
-* Bootstrap 5;
-* Bootstrap Icons;
-* JavaScript ES6+;
-* Sass;
-* jQuery;
-* jQuery Mask Plugin;
-* JSON Server;
-* ESLint;
-* Prettier.
+Os principais componentes do Bootstrap planejados no protótipo que serão implementados incluem:
+1. Navbar responsiva com menu colapsável;
+2. Cards para listagem de serviços;
+3. Modal de detalhes e confirmação de solicitação;
+4. Grid e Containers para estruturação visual.
 
 ---
 
 ## API Pública
 
-A API pública escolhida para o projeto é a **ViaCEP**.
+**Escolha:** ViaCEP API (`https://viacep.com.br/`)
 
-Ela será utilizada no formulário de solicitação para consultar automaticamente informações de endereço a partir do CEP informado pelo cliente.
+**Justificativa e Agregação de Valor:**
+A API **ViaCEP** foi integrada ao projeto para otimizar a experiência do usuário (UX) e garantir a integridade dos dados no formulário de solicitação de manutenção.
 
-Entre os dados utilizados estarão:
-
-* Logradouro;
-* Bairro;
-* Cidade;
-* Estado.
+* **Agregação de Valor:** Ao preencher o campo de CEP, a aplicação realiza uma requisição assíncrona (`fetch`/`AJAX`) que autopreenche instantaneamente os campos de *Logradouro*, *Bairro*, *Cidade* e *Estado*, reduzindo o tempo de preenchimento e minimizando erros manuais de digitação por parte do cliente.
+* **Critérios Técnicos:** Trata-se de uma API pública, gratuita, de altíssima estabilidade e que não exige autenticação via token/chave API, tornando a integração simples, rápida e ideal para consumo em ambiente educacional.
 
 ---
 
-## API Fake
+## API Fake (JSON Server)
 
-Será utilizado o **JSON Server** para simular uma API REST.
+Será utilizado o **JSON Server** para simular uma API RESTful local.
 
-Os principais recursos da API serão:
+Os principais recursos e rotas da API serão:
 
 ```text
 /services
